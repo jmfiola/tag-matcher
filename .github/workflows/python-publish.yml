@@ -38,7 +38,7 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git remote add project_origin https://${{ secrets.GITHUB_TOKEN}}@github.com/jmfiola/tag-matcher.git
         bumpversion patch
-        git push project_origin && git push project_origin -o ci.skip --tags
+        git push project_origin HEAD:main
     - name: Build package
       run: python -m build
     - name: Publish package
