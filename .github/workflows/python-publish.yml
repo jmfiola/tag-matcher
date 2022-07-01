@@ -36,10 +36,8 @@ jobs:
       run: |
         git config --global user.email "jmfiola21@gmail.com"
         git config --global user.name "jmfiola"
-        git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN}}@github.com/jmfiola/tag-matcher.git
-        git checkout "${GITHUB_REF:11}"
         bumpversion patch
-        git push --follow-tags
+        git push -u https://jmfiola:${{ secrets.GH_PASS}}@github.com/jmfiola/tag-matcher.git main --follow-tags
     - name: Build package
       run: python -m build
     - name: Publish package
