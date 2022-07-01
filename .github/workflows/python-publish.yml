@@ -29,12 +29,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install build
         pip install bump2version
-    - name: Bump version
+    - name: Bump version and push
       run: |
         git config --global user.email "jmfiola21@gmail.com"
         git config --global user.name "jmfiola"
         bumpversion patch
-        git push -u https://jmfiola:${{ secrets.GH_PASS}}@github.com/jmfiola/tag-matcher.git main --follow-tags
+        git push -u https://${{ secrets.PERSONAL_ACCESS_TOKEN}}@github.com/jmfiola/tag-matcher.git main --follow-tags
     - name: Build package
       run: python -m build
     - name: Publish package

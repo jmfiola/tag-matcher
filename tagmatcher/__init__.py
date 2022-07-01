@@ -1,4 +1,4 @@
-"""The whole module this one file."""
+"""All of tag-matcher's public/private functions"""
 
 
 def match(query_str=None, tags=[]) -> bool:
