@@ -37,10 +37,11 @@ jobs:
         bumpversion patch
         git config --global user.name "jmfiola"
         git config --global user.email "jmfiola21@gmail.com"
+        git remote add project_origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jmfiola/tag-matcher.git
         git add setup.cfg
         git add setup.py
         git commit -m "[ci skip] bumping version"
-        git push
+        git push project_origin && git push project_origin -o ci.skip --tags
     - name: Build package
       run: python -m build
     - name: Publish package
