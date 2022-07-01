@@ -16,7 +16,7 @@ First, import the module:
 
 Then, execute tag match queries like so:
 
-`is_match = tagmatcher.match(query_str="foo~bar", tags=["foo", "bar])`
+`is_match = tagmatcher.match(query_str="foo~bar", tags=["foo", "bar"])`
 
 In this case, `is_match` will equal true.
 
