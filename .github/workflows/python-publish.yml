@@ -37,7 +37,11 @@ jobs:
         git config --global user.email "jmfiola21@gmail.com"
         git config --global user.name "jmfiola"
         bumpversion patch
-        git push -u https://jmfiola:${{ secrets.GH_PASS}}@github.com/jmfiola/tag-matcher.git main --follow-tags
+   - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
     - name: Build package
       run: python -m build
     - name: Publish package
