@@ -17,21 +17,19 @@ def match(query_str=None, tags=[]) -> bool:
     if not query_str:
         return True
     elif "~" in query_str:
-        if all(
+        return all(
             [
                 match(query_str=tag_subquery_str, tags=tags)
                 for tag_subquery_str in query_str.split("~")
             ]
-        ):
-            return True
+        )
     elif "+" in query_str:
-        if any(
+        return any(
             [
                 match(query_str=tag_subquery_str, tags=tags)
                 for tag_subquery_str in query_str.split("+")
             ]
-        ):
-            return True
+        )
     elif any([query_str == tag for tag in tags]):
         return True
     return False
