@@ -1,4 +1,4 @@
 """Created by Jacob Fiola."""
 from setuptools import setup
 
-setup(version="0.0.3")
+setup(version="0.0.4")
